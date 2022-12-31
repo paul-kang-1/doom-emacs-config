@@ -29,9 +29,15 @@
 ;; add :size POINT-SIZE in the font-spec.
 (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16)
-      doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 20)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
+  		(unless (doom-font-exists-p doom-font)
+	 		(setq doom-font nil))
+(setq doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 20))
+  		(unless (doom-font-exists-p doom-big-font)
+	 		(setq doom-big-font nil))
+(setq doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font Mono" :size 16))
+  		(unless (doom-font-exists-p doom-variable-pitch-font)
+	 		(setq doom-variable-pitch-font nil))
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
